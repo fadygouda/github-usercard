@@ -37,7 +37,7 @@ axios.get('https://api.github.com/users/fadygouda')
           user, and adding that card to the DOM.
 */
 
-const followersArray = ['mhidalgo83', 'dcornelison1216', 'TheTrabin', 'theprogramking'];
+const followersArray = ['mhidalgo83', 'dcornelison1216', 'TheTrabin', 'theprogramking', 'ChitownCoder'];
 followersArray.forEach(element => {
   axios.get(`https://api.github.com/users/${element}`)
   .then(response =>
@@ -82,11 +82,12 @@ const cardMaker = (card) => {
   cardInfo.classList.add('card-info')
   names.classList.add('name')
   usernames.classList.add('username')
-  locations.textContent = card.location
-  profileLinks.href = card.url
-  followers.textContent = card.followers
-  following.textContent = card.following
-  bio.textContent = card.bio
+  names.textContent = card.name 
+  locations.textContent = `Location: ${card.location}`
+  profileLinks.textContent = `Profile: ${card.url}`
+  followers.textContent = `Followers: ${card.followers}`
+  following.textContent = `Following: ${card.following}`
+  bio.textContent = `Bio: ${card.bio}`
 
   newCard.appendChild(images)
   newCard.appendChild(cardInfo)
@@ -98,6 +99,10 @@ const cardMaker = (card) => {
   cardInfo.appendChild(followers)
   cardInfo.appendChild(following)
   cardInfo.appendChild(bio)
+
+  cardInfo.style.display = 'flex'
+  cardInfo.style.flexDirection = 'column'
+  cardInfo.style.textAlign = 'left'
 
   return newCard;
   
