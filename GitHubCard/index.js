@@ -37,7 +37,7 @@ axios.get('https://api.github.com/users/fadygouda')
           user, and adding that card to the DOM.
 */
 
-const followersArray = ['mhidalgo83', 'dcornelison1216', 'TheTrabin', 'theprogramking', 'ChitownCoder'];
+const followersArray = ['mhidalgo83', 'TheTrabin', 'theprogramking', 'ChitownCoder'];
 followersArray.forEach(element => {
   axios.get(`https://api.github.com/users/${element}`)
   .then(response =>
